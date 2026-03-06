@@ -20,6 +20,7 @@ export function Hero() {
   return (
     <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden px-6 py-24 text-center">
       <motion.div style={{ y: translateY }} className="pointer-events-none absolute inset-0">
+        <div className="absolute inset-0 bg-cover bg-center opacity-45" style={{ backgroundImage: "url('/ai/ai-technology-bg.png')" }} />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.28),transparent_40%),radial-gradient(circle_at_86%_12%,rgba(14,165,233,0.22),transparent_40%),radial-gradient(circle_at_70%_82%,rgba(59,130,246,0.2),transparent_45%),linear-gradient(135deg,rgba(6,182,212,0.05)_0%,rgba(2,6,23,0)_50%,rgba(56,189,248,0.06)_100%)]" />
       </motion.div>
 

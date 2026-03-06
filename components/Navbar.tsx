@@ -43,16 +43,6 @@ export function Navbar() {
               )}
             </motion.div>
           ))}
-          <motion.div whileHover={{ y: -2 }}>
-            <a
-              href="https://wa.me/94701987004"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex rounded-full border border-sky-300/40 bg-sky-400/10 px-3 py-2 text-sm text-sky-100 transition hover:border-sky-200 hover:bg-sky-300/20 hover:text-white"
-            >
-              Contact
-            </a>
-          </motion.div>
           <div className="ml-3 hidden items-center gap-2.5 lg:flex">
             {brandEcosystem.map((brand) => (
               <motion.div whileHover={{ y: -2, scale: 1.04 }} key={`nav-brand-${brand.slug}`}>
