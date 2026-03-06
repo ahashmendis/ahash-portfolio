@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Ahash Mendis | Portfolio",
   description: "Digital creator building brands, websites, films and experiences.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
