@@ -5,6 +5,7 @@ import { Navbar } from "@/components/Navbar";
 import { SectionHeader } from "@/components/SectionHeader";
 import { CarouselGallery } from "@/components/CarouselGallery";
 import { BrandLogo } from "@/components/BrandLogo";
+import { AnimatedGradient } from "@/components/AnimatedGradient";
 
 const portfolioItems = [
   {
@@ -34,7 +35,8 @@ const services = [
 
 export default function NexscapePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
+      <AnimatedGradient className="opacity-60" />
       <Navbar />
 
       <section className="relative mx-auto max-w-7xl px-6 pb-14 pt-20 sm:pb-20">

@@ -15,6 +15,7 @@ import { TechStack } from "@/components/TechStack";
 import { FeaturedProjects } from "@/components/FeaturedProjects";
 import { VisionSection } from "@/components/VisionSection";
 import { CTASection } from "@/components/CTASection";
+import { ClientsSection } from "@/components/ClientsSection";
 
 const navigationItems = [
   { title: "Web Development", href: "#web-dev", icon: "Web Development" },
@@ -151,14 +152,16 @@ const socialProjects = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_10%_10%,rgba(56,189,248,0.15),transparent_35%),radial-gradient(circle_at_90%_15%,rgba(14,165,233,0.12),transparent_40%),radial-gradient(circle_at_50%_85%,rgba(59,130,246,0.1),transparent_45%)]" />
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_25%_20%,rgba(168,85,247,0.08),transparent_40%),radial-gradient(circle_at_70%_75%,rgba(6,182,212,0.1),transparent_45%)] animate-aurora-slow" />
       <Navbar />
       <Hero />
 
       {/* New additions */}
       <StatsSection />
       <FeaturedProjects />
+      <ClientsSection />
 
       {/* Previous sections restored */}
       <section className="mx-auto max-w-7xl px-6 py-10 sm:py-14">
@@ -222,12 +225,6 @@ export default function Home() {
       </section>
 
       <section id="portfolio-categories" className="mx-auto max-w-7xl px-6 py-14 sm:py-20">
-        <SectionHeader
-          eyebrow="Portfolio"
-          title="Portfolio Categories"
-          subtitle="Dedicated visual sections for each core discipline in the ecosystem."
-        />
-
         <section id="web-dev" className="pt-2">
           <SectionHeader
             eyebrow="Web Development"

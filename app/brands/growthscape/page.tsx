@@ -5,6 +5,8 @@ import { Navbar } from "@/components/Navbar";
 import { SectionHeader } from "@/components/SectionHeader";
 import { CarouselGallery } from "@/components/CarouselGallery";
 import { BrandLogo } from "@/components/BrandLogo";
+import { AnimatedGradient } from "@/components/AnimatedGradient";
+import { ReelCard } from "@/components/ReelCard";
 
 const portfolioItems = [
   {
@@ -32,9 +34,18 @@ const services = [
   "Digital marketing campaigns",
 ];
 
+const growthscapeReels = [
+  {
+    title: "Growthscape Campaign Reel",
+    driveLink: "https://www.instagram.com/p/DTX-9PJj44-/",
+    description: "Brand growth content reel showcasing social-first campaign visuals and engagement-driven edits.",
+  },
+];
+
 export default function GrowthscapePage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
+      <AnimatedGradient className="opacity-60" />
       <Navbar />
 
       <section className="relative mx-auto max-w-7xl px-6 pb-14 pt-20 sm:pb-20">
@@ -90,6 +101,21 @@ export default function GrowthscapePage() {
             >
               <h3 className="text-lg font-medium text-white">{service}</h3>
             </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-8">
+        <SectionHeader
+          eyebrow="Instagram"
+          title="Growth Content Reel"
+          subtitle="Vertical social-focused campaign reel previews from Growthscape."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+          {growthscapeReels.map((video) => (
+            <div key={video.title} className="w-full max-w-[300px]">
+              <ReelCard title={video.title} driveLink={video.driveLink} description={video.description} tag="Growthscape" />
+            </div>
           ))}
         </div>
       </section>

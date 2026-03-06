@@ -26,3 +26,50 @@ body {
   color: var(--foreground);
   font-family: var(--font-geist-sans), sans-serif;
 }
+
+@keyframes aurora-slow {
+  0% {
+    transform: translate3d(-1%, 0%, 0) scale(1);
+    opacity: 0.65;
+  }
+  50% {
+    transform: translate3d(1.5%, -1%, 0) scale(1.04);
+    opacity: 0.95;
+  }
+  100% {
+    transform: translate3d(-1%, 0%, 0) scale(1);
+    opacity: 0.65;
+  }
+}
+
+@keyframes name-sheen {
+  0% {
+    opacity: 0;
+    transform: translateX(-12%);
+    filter: saturate(1);
+  }
+  20% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(0%);
+    filter: saturate(1.2);
+  }
+  80% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 0.9;
+    transform: translateX(10%);
+    filter: saturate(1);
+  }
+}
+
+.animate-aurora-slow {
+  animation: aurora-slow 12s ease-in-out infinite;
+}
+
+.animate-name-sheen {
+  animation: name-sheen 4.8s ease-in-out infinite;
+}

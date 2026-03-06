@@ -6,6 +6,8 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { CarouselGallery } from "@/components/CarouselGallery";
 import { BrandLogo } from "@/components/BrandLogo";
 import { InstagramSection } from "@/components/InstagramSection";
+import { AnimatedGradient } from "@/components/AnimatedGradient";
+import { ReelCard } from "@/components/ReelCard";
 
 const lenscapeGallery = [
   {
@@ -33,9 +35,28 @@ const services = [
   "Cinematic storytelling",
 ];
 
+const cinematicReels = [
+  {
+    title: "Wedding Story Film",
+    driveLink: "https://www.instagram.com/p/DIMdsvezKj3/",
+    description: "Cinematic wedding edit focused on emotional storytelling and documentary pacing.",
+  },
+  {
+    title: "Brand Film Cut",
+    driveLink: "https://www.instagram.com/p/DS2ixIdki51/",
+    description: "Story-led brand content with cinematic grading and rhythm-based editing.",
+  },
+  {
+    title: "Event Highlights",
+    driveLink: "",
+    description: "Premium event recap with dynamic sequencing and polished visual flow.",
+  },
+];
+
 export default function LenscapeStudiosPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
+      <AnimatedGradient className="opacity-60" />
       <Navbar />
 
       <section className="relative mx-auto max-w-7xl px-6 pb-14 pt-20 sm:pb-20">
@@ -100,6 +121,26 @@ export default function LenscapeStudiosPage() {
               <p className="text-xs uppercase tracking-[0.2em] text-cyan-300">Lenscape Studios</p>
               <h3 className="mt-2 text-lg font-medium text-white">{service}</h3>
             </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-8">
+        <SectionHeader
+          eyebrow="Instagram"
+          title="Cinematic Visual Storytelling"
+          subtitle="Instagram reel embeds for Lenscape Studios edits and visual storytelling work."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+          {cinematicReels.map((video) => (
+            <div key={video.title} className="w-full max-w-[300px]">
+              <ReelCard
+                title={video.title}
+                driveLink={video.driveLink}
+                description={video.description}
+                tag="Lenscape Studios"
+              />
+            </div>
           ))}
         </div>
       </section>

@@ -6,6 +6,8 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { CarouselGallery } from "@/components/CarouselGallery";
 import { BrandLogo } from "@/components/BrandLogo";
 import { InstagramSection } from "@/components/InstagramSection";
+import { AnimatedGradient } from "@/components/AnimatedGradient";
+import { ReelCard } from "@/components/ReelCard";
 
 const droneGallery = [
   {
@@ -32,9 +34,33 @@ const services = [
   "Landscape aerial visuals",
 ];
 
+const droneReels = [
+  {
+    title: "Aerial Hero Reel",
+    driveLink: "https://www.instagram.com/p/DS2ixIdki51/",
+    description: "Signature drone showreel featuring cinematic aerial scenes and transitions.",
+  },
+  {
+    title: "Real Estate Flythrough",
+    driveLink: "",
+    description: "Property-focused aerial flythrough designed for listing showcases and campaigns.",
+  },
+  {
+    title: "Event Drone Coverage",
+    driveLink: "",
+    description: "Dynamic overhead event captures with motion-driven storytelling and atmosphere.",
+  },
+  {
+    title: "Landscape Visual Sequence",
+    driveLink: "",
+    description: "Natural landscape aerial visuals crafted for cinematic destination storytelling.",
+  },
+];
+
 export default function HoverPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
+      <AnimatedGradient className="opacity-60" />
       <Navbar />
 
       <section className="relative mx-auto max-w-7xl px-6 pb-14 pt-20 sm:pb-20">
@@ -89,6 +115,21 @@ export default function HoverPage() {
             >
               <h3 className="text-lg font-medium text-white">{service}</h3>
             </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-8">
+        <SectionHeader
+          eyebrow="Drone Reel"
+          title="Drone Cinematography Reel"
+          subtitle="Instagram reel embeds for Hover by Ahash aerial cinematography and drone productions."
+        />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center">
+          {droneReels.map((video) => (
+            <div key={video.title} className="w-full max-w-[300px]">
+              <ReelCard title={video.title} driveLink={video.driveLink} description={video.description} tag="Hover by Ahash" />
+            </div>
           ))}
         </div>
       </section>

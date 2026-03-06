@@ -4,10 +4,12 @@ import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { BrandCard } from "@/components/BrandCard";
 import { brandEcosystem } from "@/data/brands";
+import { AnimatedGradient } from "@/components/AnimatedGradient";
 
 export default function BrandsPage() {
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="relative min-h-screen overflow-hidden bg-slate-950 text-slate-100">
+      <AnimatedGradient className="opacity-60" />
       <Navbar />
       <section className="mx-auto max-w-7xl px-6 py-20">
         <motion.div

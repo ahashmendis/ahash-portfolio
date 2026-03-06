@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Sparkles, Rocket } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedGradient } from "@/components/AnimatedGradient";
 
 const particles = Array.from({ length: 28 }, (_, i) => ({
   id: i,
@@ -12,6 +13,7 @@ const particles = Array.from({ length: 28 }, (_, i) => ({
   delay: (i % 7) * 0.25,
   duration: 4 + (i % 4),
 }));
+const nameWords = ["Ahash", "Mendis"];
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -19,6 +21,8 @@ export function Hero() {
 
   return (
     <section className="relative flex min-h-[88vh] items-center justify-center overflow-hidden px-6 py-24 text-center">
+      <AnimatedGradient className="opacity-70" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_18%,rgba(56,189,248,0.14),transparent_38%),radial-gradient(circle_at_80%_22%,rgba(167,139,250,0.12),transparent_34%),radial-gradient(circle_at_50%_82%,rgba(6,182,212,0.14),transparent_44%)] animate-aurora-slow" />
       <motion.div style={{ y: translateY }} className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-cover bg-center opacity-45" style={{ backgroundImage: "url('/ai/ai-technology-bg.png')" }} />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.28),transparent_40%),radial-gradient(circle_at_86%_12%,rgba(14,165,233,0.22),transparent_40%),radial-gradient(circle_at_70%_82%,rgba(59,130,246,0.2),transparent_45%),linear-gradient(135deg,rgba(6,182,212,0.05)_0%,rgba(2,6,23,0)_50%,rgba(56,189,248,0.06)_100%)]" />
@@ -43,12 +47,42 @@ export function Hero() {
         className="relative z-10 max-w-5xl"
       >
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.7 }}
-          className="text-5xl font-semibold tracking-tight text-white [text-shadow:0_0_32px_rgba(56,189,248,0.3)] sm:text-7xl"
+          initial={{ opacity: 0, y: 36, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          transition={{ duration: 0.75, ease: "easeOut" }}
+          viewport={{ amount: 0.65 }}
+          className="relative mx-auto inline-flex items-center gap-[0.28em] whitespace-nowrap text-5xl font-semibold tracking-tight text-white sm:text-7xl"
         >
-          Ahash Mendis
+          <span className="sr-only">Ahash Mendis</span>
+          <motion.span
+            aria-hidden="true"
+            initial={{ opacity: 0.55, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            viewport={{ amount: 0.65 }}
+            className="pointer-events-none absolute -inset-x-10 -inset-y-5 -z-10 rounded-3xl bg-[radial-gradient(circle_at_50%_55%,rgba(56,189,248,0.26),transparent_58%)] blur-2xl"
+          />
+          {nameWords.map((word, index) => (
+            <motion.span
+              key={word}
+              initial={{ opacity: 0, y: 56, rotateX: index === 0 ? 35 : -35, filter: "blur(10px)" }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
+              transition={{ duration: 0.72, delay: 0.12 + index * 0.14, ease: [0.22, 1, 0.36, 1] }}
+              viewport={{ amount: 0.65 }}
+              className="inline-block [text-shadow:0_0_32px_rgba(56,189,248,0.38)]"
+              style={{ transformOrigin: "50% 80%" }}
+            >
+              {word}
+            </motion.span>
+          ))}
+          <motion.span
+            initial={{ width: 0, opacity: 0 }}
+            whileInView={{ width: "78%", opacity: 1 }}
+            transition={{ duration: 0.55, delay: 0.45, ease: "easeOut" }}
+            viewport={{ amount: 0.65 }}
+            className="mt-3 h-px bg-gradient-to-r from-transparent via-cyan-300 to-transparent"
+            aria-hidden="true"
+          />
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -91,6 +125,18 @@ export function Hero() {
               </Button>
             </Link>
           </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8, duration: 0.6 }}
+          className="mt-10 flex justify-center"
+        >
+          <div className="flex items-center gap-2 rounded-full border border-cyan-300/30 bg-slate-900/40 px-4 py-2 backdrop-blur-md">
+            <span className="inline-block h-2 w-2 rounded-full bg-cyan-300 animate-pulse" />
+            <span className="text-xs uppercase tracking-[0.2em] text-cyan-100">Scroll to explore</span>
+          </div>
         </motion.div>
       </motion.div>
     </section>

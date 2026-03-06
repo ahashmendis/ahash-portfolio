@@ -9,6 +9,7 @@ const stats = [
   { label: "Digital Campaigns", value: 250, suffix: "+" },
   { label: "Projects Delivered", value: 1000, suffix: "+" },
   { label: "Digital Brands Built", value: 4, suffix: "" },
+  { label: "Clients", value: 9, suffix: "+" },
 ];
 
 function Counter({ value, suffix }: { value: number; suffix: string }) {
@@ -44,7 +45,7 @@ export function StatsSection() {
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-14 sm:py-20">
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
         {items.map((item, index) => (
           <motion.div
             key={item.label}
